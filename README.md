@@ -1,6 +1,8 @@
 # docker-compose-stacks
 
-Ready-to-use docker-compose stacks, pre-configured with data persistence.
+Ready-to-use docker-compose stacks, pre-configured with data persistence
+
+> **Nota:** intended for personal and local use only
 
 ## Requirements
 
@@ -9,9 +11,9 @@ Ready-to-use docker-compose stacks, pre-configured with data persistence.
 
 ## Available stacks
 
-| Stack                                  | Description                                            |
-| -------------------------------------- | ------------------------------------------------------ |
-| [postgres-pgadmin](./postgres-pgadmin) | PostgreSQL + pgAdmin, with data persistence via volume |
+| Stack                                  | Description                                  |
+| -------------------------------------- | -------------------------------------------- |
+| [postgres-pgadmin](./postgres-pgadmin) | PostgreSQL + pgAdmin4, with data persistence |
 
 ## Usage
 
@@ -47,7 +49,7 @@ compose-stacks/
 └── (future stacks...)
 ```
 
-Each stack has its own folder with `docker-compose.yml` and a stack-specific README covering ports, variables, and volumes.
+Each stack has its own folder with `docker-compose.yml` and a stack-specific README covering ports, variables, and volumes
 
 ## Author
 

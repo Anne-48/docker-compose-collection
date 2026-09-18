@@ -3,6 +3,8 @@
 PostgreSQL + pgAdmin4<br>
 Pre-configured with pgAdmin connected to Postgres server with data persistence
 
+> **Nota:** intended for personal and local use only
+
 ## Requirements
 
 - Docker
