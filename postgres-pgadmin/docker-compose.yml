@@ -12,7 +12,7 @@ services:
     ports:
       - ${POSTGRES_PORT:-5432}:5432
     networks:
-      - adgres-network
+      - postadmin-network
     restart: unless-stopped
     healthcheck:
       test:
@@ -35,7 +35,7 @@ services:
     ports:
       - ${PGADMIN_PORT:-8080}:80
     networks:
-      - adgres-network
+      - postadmin-network
     restart: unless-stopped
     depends_on:
       postgres:
@@ -62,5 +62,5 @@ configs:
       }
 
 networks:
-  adgres-network:
+  postadmin-network:
     driver: bridge

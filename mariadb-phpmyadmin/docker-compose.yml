@@ -1,0 +1,45 @@
+name: mariadb-phpmyadmin
+services:
+  mariadb:
+    container_name: local-mariadb
+    image: mariadb:11
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD:-admin123}
+      MARIADB_DATABASE: ${MARIADB_DATABASE:-dbLocal}
+    volumes:
+      - ./data/mariadb:/var/lib/mysql
+    ports:
+      - ${MARIADB_PORT:-3306}:3306
+    networks:
+      - mariadmin-network
+    restart: unless-stopped
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'healthcheck.sh',
+          '--connect',
+          '--innodb_initialized',
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  phpmyadmin:
+    container_name: local-phpmyadmin
+    image: phpmyadmin:latest
+    environment:
+      PMA_HOST: mariadb
+      PMA_PORT: 3306
+    ports:
+      - ${PHPMYADMIN_PORT:-8081}:80
+    networks:
+      - mariadmin-network
+    restart: unless-stopped
+    depends_on:
+      mariadb:
+        condition: service_healthy
+
+networks:
+  mariadmin-network:
+    driver: bridge

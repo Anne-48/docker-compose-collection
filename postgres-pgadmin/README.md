@@ -18,13 +18,13 @@ Pre-configured with pgAdmin connected to Postgres server with data persistence
 
 ## Default config
 
-|                   | Value             |
-| ----------------- | ----------------- |
-| Postgres user     | `postgres`        |
-| Postgres password | `admin123`        |
-| Postgres database | `dbLocal`         |
-| pgAdmin email     | `admin@admin.com` |
-| pgAdmin password  | `admin123`        |
+|                    | Value             |
+| ------------------ | ----------------- |
+| Postgres root user | `postgres`        |
+| Postgres password  | `admin123`        |
+| Postgres database  | `dbLocal`         |
+| pgAdmin email      | `admin@admin.com` |
+| pgAdmin password   | `admin123`        |
 
 <br>
 
@@ -55,7 +55,7 @@ Edit the `volumes:` section in `docker-compose.yml`
 
 ## Usage
 
-1. Create a folder for your project and place `docker-compose.yml` inside, open the terminal from the folder
+1. Create a folder for your project and place `docker-compose.yml` inside, open the terminal from the folder<br><br>
 2. Start the stack:
    ```bash
    docker compose up -d
@@ -64,7 +64,7 @@ Edit the `volumes:` section in `docker-compose.yml`
    ```bash
    docker compose ps
    ```
-4. Access pgAdmin at [http://localhost:8080](http://localhost:8080) - the Postgres server is already registered<br>
+4. Access pgAdmin at [http://localhost:8080](http://localhost:8080) - the Postgres server is already registered<br><br>
 5. Stop:
    ```bash
    docker compose down
@@ -76,7 +76,8 @@ Edit the `volumes:` section in `docker-compose.yml`
 
 ## Permissions
 
-If you hit permission errors on the local data folders, run this on your host machine from the same folder as `docker-compose.yml`:
+If you hit permission errors on the local data folders:<br>
+Run this on your host machine from the same folder as `docker-compose.yml`:
 
 ```bash
 sh -c "chown -R 999:999 ./data/postgresql && chown -R 5050:5050 ./data/pgadmin"
